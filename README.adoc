@@ -21,3 +21,16 @@ _The student is able to describe cloud computing in own words and list examples 
  * https://landscape.cncf.io/
  * https://www.cncf.io/wp-content/uploads/2020/11/CNCF_Survey_Report_2020.pdf
  * https://csrc.nist.gov/publications/detail/sp/800-145/final
+
+=== Review questions
+
+* What modern, current technologies relate to the topic of distributed computing. List 3 and explain why.
+* Describe 3 abstraction layers of cloud (incl. abbreviation) and list a technology example for each.
+* What characteristics and features can I expect as a service consumer from the various layers.
+* List pros and cons for cloud (generic) - X examples each
+
+=== Open Questions
+
+* Differences between FaaS and API
+* 
+
