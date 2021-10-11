@@ -78,7 +78,7 @@ image::pics/spring_boot_intro.png[Spring Boot Introduction]
 == Module: Spring Boot Next Steps
 
 * Recap of Spring Boot Intro Module
-* Live coding of Controller with CRUD endpoints
+* Live coding of Controller with CRUD endpoints (Create, Read, Update, Delete)
 * Using Logger with SL4J
 * Interacting with the application through REST Clients
 * Demonstrate dynamic behaviour
@@ -91,3 +91,11 @@ _The student is able to build and configure an own Spring Boot application from 
 
 * https://www.baeldung.com/spring-value-annotation
 * https://developpaper.com/spring-boot-configuration-priority-a-specific-exercise-example/
+
+=== Exercises
+
+* Build a simple Spring Boot Microservice with the following starter dependencies: Web, Actuator
+* Create an internal list of objects (Strings)
+* Add some basic "functionality" to make the service react to HTTP GET, POST, PUT and DELETE calls (e.g. modify an internal list)
+* Log the activity using Logger (ex. SL4J)
+
