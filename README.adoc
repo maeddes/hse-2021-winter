@@ -73,6 +73,8 @@ _The student is able to build and configure an own Spring Boot application from 
 * Describe the role or various functionalities/endpoints of the Actuator 
 * List 3 examples of settings to be externally configured in application.properties
 
+image::pics/spring_boot_intro.png[Spring Boot Introduction]
+
 == Module: Spring Boot Next Steps
 
 * Recap of Spring Boot Intro Module
