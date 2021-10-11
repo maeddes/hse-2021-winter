@@ -66,3 +66,13 @@ _The student is able to build and configure an own Spring Boot application from 
 * https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-boot-dev-pack
 * https://www.gitpod.io
 
+* https://developpaper.com/spring-boot-configuration-priority-a-specific-exercise-example/
+
+=== Review questions
+
+* Describe the difference between Spring and Spring Boot
+* What kind of configurations can be set/done through start.spring.io (Spring Initializr) 
+* Describe the role or various functionalities/endpoints of the Actuator 
+* List 3 examples of settings to be externally configured in application.properties
+
+
