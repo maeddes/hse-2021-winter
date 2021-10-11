@@ -66,8 +66,6 @@ _The student is able to build and configure an own Spring Boot application from 
 * https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-boot-dev-pack
 * https://www.gitpod.io
 
-* https://developpaper.com/spring-boot-configuration-priority-a-specific-exercise-example/
-
 === Review questions
 
 * Describe the difference between Spring and Spring Boot
@@ -75,4 +73,19 @@ _The student is able to build and configure an own Spring Boot application from 
 * Describe the role or various functionalities/endpoints of the Actuator 
 * List 3 examples of settings to be externally configured in application.properties
 
+== Module: Spring Boot Next Steps
 
+* Recap of Spring Boot Intro Module
+* Live coding of Controller with CRUD endpoints
+* Using Logger with SL4J
+* Interacting with the application through REST Clients
+* Demonstrate dynamic behaviour
+* Outlook: "Big picture" of lecture
+
+=== Objectives
+_The student is able to build and configure an own Spring Boot application from scratch with the IDE of choice. The exercise is to build a fully logging-enabled application that exposes various REST endpoints and is able to execute CRUD operations to modify an internal list of Strings. This includes dynamic configuration of the actuator component and logging levels._
+
+=== Links
+
+* https://www.baeldung.com/spring-value-annotation
+* https://developpaper.com/spring-boot-configuration-priority-a-specific-exercise-example/
