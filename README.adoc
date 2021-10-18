@@ -117,4 +117,5 @@ image::pics/container_exercises.png[Relation Container and Image]
 * https://labs.play-with-docker.com/
 * https://katacoda.com/
 * https://opencontainers.org/
+* https://www.youtube.com/watch?v=fqMOX6JJhGo
 
