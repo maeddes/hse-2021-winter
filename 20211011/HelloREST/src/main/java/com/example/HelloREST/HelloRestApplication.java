@@ -30,7 +30,7 @@ public class HelloRestApplication {
 	}
 
 	@PostMapping("/setProperty/{paramProperty}")
-	public String setProporty(@PathVariable String paramProperty){
+	public String setProperty(@PathVariable String paramProperty){
 
 		logger.info("Old property {} New Property {} ", internalProperty, paramProperty);	
 		internalProperty = paramProperty;
