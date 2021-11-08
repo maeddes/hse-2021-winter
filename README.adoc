@@ -120,6 +120,15 @@ image::pics/container_exercises.png[Relation Container and Image]
 * https://www.docker.com/products/docker-desktop
 * https://www.youtube.com/watch?v=fqMOX6JJhGo
 
+=== Review questions
+
+* What is the difference between a container and a VM? List 3 criteria
+* Which technologies led to the evolution of docker (and why)? 
+* What is the difference between a docker daemon and the docker hub?
+* What is the difference between docker run, docker pull and docker start?
+* Which command transitions from a container instance to an image?
+* What does docker exec do?
+
 == Module: Container Images
 
 * Difference and relation between container and container images
@@ -139,6 +148,17 @@ _The student understands the relation between container image and container, how
 * https://paketo.io/
 * https://github.com/maeddes/options-galore-container-build/blob/main/walkthrough.adoc
 * https://github.com/GoogleContainerTools/jib
+
+=== Review questions
+
+* List 3 different options to build a container image
+* Explain docker build vs docker commit 
+* List 2 evolution steps of the Dockerfile and provide 1 improvement for each step 
+* Explain or list 1 advantage&disadvantage comparing JIB and Paketo/CNB to original Dockerfiles
+* How is a container image build up internally?
+* Which are criterias you can think that make image building "better" 
+
+
 
 
 
