@@ -11,7 +11,7 @@ public class Todo {
     @GeneratedValue
     long id;
 
-    String todo;
+    private String todo;
 
     public Todo(){}
 
@@ -19,6 +19,10 @@ public class Todo {
 
         this.todo = todo;
         
+    }
+
+    public String getTodo() {
+        return todo;
     }
 
 }

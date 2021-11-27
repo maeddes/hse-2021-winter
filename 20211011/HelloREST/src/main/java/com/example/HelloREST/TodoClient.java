@@ -1,5 +1,7 @@
 package com.example.HelloREST;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -35,9 +37,24 @@ public class TodoClient {
     @GetMapping("/todo/")
     public List<String> getTodos(){
 
-        // ToDo :-)
+        logger.debug("Invoked getTodos");
 
-        return null;
+        ArrayList<String> todos = new ArrayList<String>();
+
+        /*
+        Iterator<Todo> todoIterator = repo.findAll().iterator();
+        while (todoIterator.hasNext()) todos.add(todoIterator.next().getTodo());
+
+        repo.findAll().forEach(item -> todos.add(item.getTodo()));
+
+        repo.findAll().forEach(todos::add);
+         */
+
+        for(Todo item : repo.findAll()) todos.add(item.getTodo());
+
+        logger.info("returning: {}", todos.toString());
+
+        return todos;
     }
     
 }
