@@ -5,9 +5,11 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,12 +29,14 @@ public class ShoppingItemRestController {
     @Autowired
     ShoppingItemRepository shoppingItemRepository;
 
+    @Operation(summary = "Only a hack, please ignore")
     @PostMapping(path = "/{itemName}")
-    ShoppingItem addShoppingItemByName(@PathVariable String itemName) {
+    ShoppingItem createShoppingItemByName(@PathVariable String itemName) {
 
         ShoppingItem shoppingItem = new ShoppingItem(itemName);
         shoppingItemRepository.save(shoppingItem);
         return shoppingItem;
+
     }
 
     @Operation(summary = "Create a new shopping item")
@@ -40,10 +44,28 @@ public class ShoppingItemRestController {
             @ApiResponse(responseCode = "201", description = "Item created", content = @Content)})
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(consumes = "application/json", produces = "application/json")
-    ShoppingItem addShoppingItem(@RequestBody ShoppingItem item) {
+    ShoppingItem createShoppingItem(@RequestBody ShoppingItem item) {
 
         shoppingItemRepository.save(item);
         return item;
+
+    }
+
+    @Operation(summary = "Updates an existing shopping item")
+    @PutMapping(consumes = "application/json", produces = "application/json", path = "/{id}")
+    ShoppingItem updateShoppingItem(@RequestBody ShoppingItem item){
+
+        //TODO
+        return null;
+
+    }
+
+    @Operation(summary = "Deletes a shopping item")
+    @DeleteMapping(consumes = "application/json", produces = "application/json", path = "/{id}")
+    ShoppingItem deleteShoppingItem(@PathVariable long id){
+
+        this.shoppingItemRepository.deleteById(id);
+        return null;
 
     }
 
@@ -60,6 +82,7 @@ public class ShoppingItemRestController {
 
     }
 
+    @Operation(summary = "Returns a list of shopping items")
     @GetMapping(produces = "application/json")
     List<ShoppingItem> getShoppingItems(@RequestParam(required = false) String itemName) {
 
