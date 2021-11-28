@@ -6,11 +6,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 public class ShoppingItem {
 
     @Id
     @GeneratedValue
+    // required for Spring Repository to return id
+    @JsonProperty
     long id;
 
     private String itemName;
