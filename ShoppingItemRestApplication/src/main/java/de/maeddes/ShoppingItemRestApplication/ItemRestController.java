@@ -62,7 +62,7 @@ public class ItemRestController {
 
     @Operation(summary = "Deletes a shopping item")
     @DeleteMapping(consumes = "application/json", produces = "application/json", path = "/{itemId}")
-    Item deleteShoppingItem(@PathVariable int itemId){
+    Item deleteShoppingItem(@PathVariable long itemId){
 
         this.shoppingItemRepository.deleteById(itemId);
         return null;
