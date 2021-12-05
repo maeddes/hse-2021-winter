@@ -4,26 +4,34 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
+@Table(name = "item")
 public class Item {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "item_id_seq")
+    @SequenceGenerator(
+        name = "item_id_seq",
+        allocationSize = 1
+    )
     // required for Spring Repository to return id
     @JsonProperty
-    long itemId;
+    long id;
 
     private String name;
     private int quantity = 1;
     private boolean complete = false;
     @DateTimeFormat(pattern = "YYYY-MM-DDThh:mm:ss")
-    private Date creationDate = new Date();
+    private Date created = new Date();
 
     public Item(){}
 
@@ -38,8 +46,8 @@ public class Item {
         this.quantity=quantity;
     }
 
-    public long getItemId() {
-        return itemId;
+    public long getId() {
+        return id;
     }
 
     public String getName() {
@@ -66,8 +74,8 @@ public class Item {
         this.complete = complete;
     }
 
-    public Date getCreationDate() {
-        return creationDate;
+    public Date getCreated() {
+        return created;
     }
     
 }
