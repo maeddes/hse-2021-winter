@@ -76,7 +76,7 @@ public class ItemRestController {
             @ApiResponse(responseCode = "400", description = "Invalid itemId supplied", content = @Content),
             @ApiResponse(responseCode = "404", description = "Item not found", content = @Content) })
     @GetMapping(produces = "application/json", path = "/{itemId}")
-    Optional<Item> getShoppingItem(@PathVariable int itemId) {
+    Optional<Item> getShoppingItem(@PathVariable long itemId) {
 
         return shoppingItemRepository.findById(itemId);
 
