@@ -14,7 +14,7 @@ public class ExposeIdConfiguration implements RepositoryRestConfigurer {
      */
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
-        config.exposeIdsFor(ShoppingItem.class);
+        config.exposeIdsFor(Item.class);
 
     }
 

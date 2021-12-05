@@ -23,17 +23,17 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 @RestController
-@RequestMapping("shoppingItems")
-public class ShoppingItemRestController {
+@RequestMapping("items")
+public class ItemRestController {
 
     @Autowired
-    ShoppingItemRepository shoppingItemRepository;
+    ItemRepository shoppingItemRepository;
 
     @Operation(summary = "Only a hack, please ignore")
-    @PostMapping(path = "/{itemName}")
-    ShoppingItem createShoppingItemByName(@PathVariable String itemName) {
+    @PostMapping(path = "/{name}")
+    Item createShoppingItemByName(@PathVariable String name) {
 
-        ShoppingItem shoppingItem = new ShoppingItem(itemName);
+        Item shoppingItem = new Item(name);
         shoppingItemRepository.save(shoppingItem);
         return shoppingItem;
 
@@ -44,7 +44,7 @@ public class ShoppingItemRestController {
             @ApiResponse(responseCode = "201", description = "Item created", content = @Content)})
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(consumes = "application/json", produces = "application/json")
-    ShoppingItem createShoppingItem(@RequestBody ShoppingItem item) {
+    Item createShoppingItem(@RequestBody Item item) {
 
         shoppingItemRepository.save(item);
         return item;
@@ -52,8 +52,8 @@ public class ShoppingItemRestController {
     }
 
     @Operation(summary = "Updates an existing shopping item")
-    @PutMapping(consumes = "application/json", produces = "application/json", path = "/{id}")
-    ShoppingItem updateShoppingItem(@RequestBody ShoppingItem item){
+    @PutMapping(consumes = "application/json", produces = "application/json", path = "/{itemId}")
+    Item updateShoppingItem(@RequestBody Item item){
 
         //TODO
         return null;
@@ -61,36 +61,36 @@ public class ShoppingItemRestController {
     }
 
     @Operation(summary = "Deletes a shopping item")
-    @DeleteMapping(consumes = "application/json", produces = "application/json", path = "/{id}")
-    ShoppingItem deleteShoppingItem(@PathVariable long id){
+    @DeleteMapping(consumes = "application/json", produces = "application/json", path = "/{itemId}")
+    Item deleteShoppingItem(@PathVariable int itemId){
 
-        this.shoppingItemRepository.deleteById(id);
+        this.shoppingItemRepository.deleteById(itemId);
         return null;
 
     }
 
-    @Operation(summary = "Find a shopping item by its id")
+    @Operation(summary = "Find a shopping item by its itemId")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Found the item", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = ShoppingItem.class)) }),
-            @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = Item.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid itemId supplied", content = @Content),
             @ApiResponse(responseCode = "404", description = "Item not found", content = @Content) })
-    @GetMapping(produces = "application/json", path = "/{id}")
-    Optional<ShoppingItem> getShoppingItem(@PathVariable long id) {
+    @GetMapping(produces = "application/json", path = "/{itemId}")
+    Optional<Item> getShoppingItem(@PathVariable int itemId) {
 
-        return shoppingItemRepository.findById(id);
+        return shoppingItemRepository.findById(itemId);
 
     }
 
     @Operation(summary = "Returns a list of shopping items")
     @GetMapping(produces = "application/json")
-    List<ShoppingItem> getShoppingItems(@RequestParam(required = false) String itemName) {
+    List<Item> getShoppingItems(@RequestParam(required = false) String itemName) {
 
-        List<ShoppingItem> shoppingItems = null;
+        List<Item> shoppingItems = null;
 
         if (itemName != null) {
 
-            shoppingItems = shoppingItemRepository.findByItemName(itemName);
+            shoppingItems = shoppingItemRepository.findByName(itemName);
         } else {
 
             shoppingItems = shoppingItemRepository.findAll();

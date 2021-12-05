@@ -8,39 +8,46 @@ import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
-public class ShoppingItem {
+public class Item {
 
     @Id
     @GeneratedValue
     // required for Spring Repository to return id
     @JsonProperty
-    long id;
+    long itemId;
 
-    private String itemName;
+    private String name;
     private int quantity = 1;
-    private boolean isPurchased = false;
+    private boolean complete = false;
+    @DateTimeFormat(pattern = "YYYY-MM-DDThh:mm:ss")
     private Date creationDate = new Date();
 
-    public ShoppingItem(){}
+    public Item(){}
 
-    public ShoppingItem(String name){
+    public Item(String name){
 
-        this.itemName=name;
+        this.name=name;
     }
 
-    public ShoppingItem(String name, int quantity){
+    public Item(String name, int quantity){
 
-        this.itemName=name;
+        this.name=name;
         this.quantity=quantity;
     }
 
-    public String getItemName() {
-        return itemName;
+    public long getItemId() {
+        return itemId;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getQuantity() {
@@ -51,12 +58,12 @@ public class ShoppingItem {
         this.quantity = quantity;
     }
 
-    public boolean isPurchased() {
-        return isPurchased;
+    public boolean isComplete() {
+        return complete;
     }
 
-    public void setPurchased(boolean isPurchased) {
-        this.isPurchased = isPurchased;
+    public void setComplete(boolean complete) {
+        this.complete = complete;
     }
 
     public Date getCreationDate() {
