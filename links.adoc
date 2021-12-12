@@ -1,0 +1,18 @@
+* https://stackoverflow.com/questions/14561385/missing-sequence-or-table-hibernate-sequence
+* https://stackoverflow.com/questions/1493262/list-all-sequences-in-a-postgres-db-8-1-with-sql
+* https://stackoverflow.com/questions/39807483/sequence-hibernate-sequence-not-found-sql-statement
+* https://stackoverflow.com/questions/9736085/run-a-postgresql-sql-file-using-command-line-arguments
+
+* https://www.baeldung.com/hibernate-identifiers
+* https://www.baeldung.com/jpa-default-column-values
+
+* https://www.baeldung.com/spring-5-webclient
+
+* https://rieckpil.de/spring-webclient-exchange-vs-retrieve-a-comparison/
+
+* https://github.com/Timi007/ShoppingListDatabase
+* https://raw.githubusercontent.com/Timi007/ShoppingListMinimal/master/docs/shoppinglist_api_proposal.yaml
+
+* https://editor.swagger.io/
+
+https://github.com/rakyll/hey
