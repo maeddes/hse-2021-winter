@@ -10,9 +10,6 @@
 
 * https://rieckpil.de/spring-webclient-exchange-vs-retrieve-a-comparison/
 
-* https://github.com/Timi007/ShoppingListDatabase
-* https://raw.githubusercontent.com/Timi007/ShoppingListMinimal/master/docs/shoppinglist_api_proposal.yaml
-
 * https://editor.swagger.io/
 
-https://github.com/rakyll/hey
+* https://github.com/rakyll/hey
