@@ -1,0 +1,4 @@
+=== Reference Database and Sample project:
+
+* https://github.com/Timi007/ShoppingListDatabase
+* https://raw.githubusercontent.com/Timi007/ShoppingListMinimal/master/docs/shoppinglist_api_proposal.yaml
