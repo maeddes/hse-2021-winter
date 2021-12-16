@@ -18,12 +18,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Item {
 
     @Id
+    //@GeneratedValue
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "item_id_seq")
     @SequenceGenerator(
         name = "item_id_seq",
         allocationSize = 1
     )
-    // required for Spring Repository to return id
+    //required for Spring Repository to return id
     @JsonProperty
     long id;
 

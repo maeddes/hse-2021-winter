@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: my-dep
+  name: my-dep
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-dep
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: my-dep
+    spec:
+      containers:
+      - image: maeddes/shopping-list:jib
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: "h2"
+        name: shopping-list
+        resources: {}
+status: {}

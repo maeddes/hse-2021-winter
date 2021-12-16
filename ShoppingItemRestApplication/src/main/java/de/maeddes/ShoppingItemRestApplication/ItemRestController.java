@@ -46,6 +46,7 @@ public class ItemRestController {
     @PostMapping(consumes = "application/json", produces = "application/json")
     Item createShoppingItem(@RequestBody Item item) {
 
+        System.out.println("Received: "+item.getName()+item.getQuantity());
         shoppingItemRepository.save(item);
         return item;
 
@@ -61,7 +62,7 @@ public class ItemRestController {
     }
 
     @Operation(summary = "Deletes a shopping item")
-    @DeleteMapping(consumes = "application/json", produces = "application/json", path = "/{itemId}")
+    @DeleteMapping(produces = "application/json", path = "/{itemId}")
     Item deleteShoppingItem(@PathVariable long itemId){
 
         this.shoppingItemRepository.deleteById(itemId);

@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ToDos</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<link rel="stylesheet" href="style.css"/>
+
+<body>
+
+<div>
+    <h1>Shopping list</h1>
+    <form method="POST" th:action="@{/create}">
+        <label for="newitem">New Shopping Item</label>
+        <input type="text" name="newItem" th:value="${newItem}" />
+        <label>Amount</label>
+        <input type="text" name="amount" th:value="${amount}" />
+        <input type="submit" value="Add!">
+    </form>
+</div>
+
+<div th:unless="${#lists.isEmpty(items)}">    
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Date</th>
+        </tr>
+        <tr th:each="item : ${items}">
+            <td th:text="${item.id}"/>
+            <td th:text="${item.name}"/>
+            <td th:text="${item.quantity}"/>
+            <td th:text="${item.created}"/>
+            <td>
+                <form method="POST" th:action="@{/delete}">
+                    <input type="hidden" name="id" th:value="${item.id}" />
+                    <input type="submit" value="Done!"/>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div th:if="${#lists.isEmpty(items)}">
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Date</th>
+        </tr>
+        <tr>
+            <td>Nothing</td>
+            <td>None</td>
+            <td>Never</td>
+        </tr>
+    </table>
+</div>
+
+</body>
