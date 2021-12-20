@@ -3,7 +3,18 @@ package de.maeddes.ShoppingItemThymeleafUI;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Item implements Serializable{
+
+    public long id;
+    public String name;
+    public int quantity;
+    public boolean complete;
+    @DateTimeFormat(pattern = "YYYY-MM-DDThh:mm:ss")
+    public Date created = new Date();
+
+    public Item(){}
 
     public long getId() {
         return id;
@@ -13,7 +24,7 @@ public class Item implements Serializable{
         this.id = id;
     }
 
-    public String getName() {
+	public String getName() {
         return name;
     }
 
@@ -45,12 +56,11 @@ public class Item implements Serializable{
         this.created = created;
     }
 
-    public long id;
-    public String name;
-    public int quantity;
-    public boolean complete;
-    public Date created;
 
-    public Item(){}
+    @Override
+	public String toString() {
+		return "Item [complete=" + complete + ", created=" + created + ", id=" + id + ", name=" + name + ", quantity="
+				+ quantity + "]";
+	}
 
 }

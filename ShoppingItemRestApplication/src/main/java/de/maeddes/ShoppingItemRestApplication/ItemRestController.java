@@ -23,7 +23,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 @RestController
-@RequestMapping("items")
+@RequestMapping("/items")
 public class ItemRestController {
 
     @Autowired
@@ -46,7 +46,7 @@ public class ItemRestController {
     @PostMapping(consumes = "application/json", produces = "application/json")
     Item createShoppingItem(@RequestBody Item item) {
 
-        System.out.println("Received: "+item.getName()+item.getQuantity());
+        System.out.println("Received: "+item);
         shoppingItemRepository.save(item);
         return item;
 

@@ -1,11 +1,15 @@
 package de.maeddes.ShoppingItemThymeleafUI;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
+
+import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("play")
@@ -33,14 +37,14 @@ public class ShoppingItemPlayAroundController {
         //     .bodyToMono(Item[].class)
         //     .block();
 
-		return "hey "+shoppingApplicationEndpoint;
+		return "hey ho"+shoppingApplicationEndpoint;
 	}
 
     @GetMapping("/getItemAsObject") 
     public String simpleCallObject(){
 
         return WebClient
-            .create("http://localhost:8080/items/1")
+            .create(shoppingApplicationEndpoint+"1")
             .get()
             .retrieve()
             .bodyToMono(Item.class)
@@ -48,6 +52,27 @@ public class ShoppingItemPlayAroundController {
             .toString();
 
     }
+
+    @GetMapping("/createItemAsObject") 
+    public Item createCallObject(){
+
+        Item newItem = new Item();
+        newItem.name = "temp";
+        newItem.quantity = 5;
+
+        System.out.println("Item: "+newItem);
+
+        return WebClient
+            .create("http://localhost:8080/items/")
+            .post()
+            .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+            .body(Mono.just(newItem), Item.class)
+            .retrieve()
+            .bodyToMono(Item.class)
+            .block();
+
+    }
+
 
     @GetMapping("/deleteItem") 
     public void deleteItem(){

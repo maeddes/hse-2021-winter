@@ -1,6 +1,8 @@
 package de.maeddes.ShoppingItemThymeleafUI;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,16 +39,17 @@ public class ShoppingItemController {
     @PostMapping("/create")
 	public String addItem(@RequestParam String newItem, @RequestParam int amount, Model model){
 
-		System.out.println("New item: "+newItem+amount);
-
         Item item = new Item();
         item.setName(newItem);
         item.setQuantity(amount);
 
+        System.out.println("New item: "+item);
+
         WebClient
             .create(shoppingApplicationEndpoint)
             .post()
-            .body(Mono.just(newItem), Item.class)
+            .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+            .body(Mono.just(item), Item.class)
             .retrieve()
             .bodyToMono(Item.class)
             .block();

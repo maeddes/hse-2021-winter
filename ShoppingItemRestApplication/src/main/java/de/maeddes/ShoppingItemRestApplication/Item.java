@@ -29,8 +29,9 @@ public class Item {
     long id;
 
     private String name;
-    private int quantity = 1;
+    private int quantity;
     private boolean complete = false;
+    
     @DateTimeFormat(pattern = "YYYY-MM-DDThh:mm:ss")
     private Date created = new Date();
 
@@ -39,6 +40,7 @@ public class Item {
     public Item(String name){
 
         this.name=name;
+        this.quantity = 1;
     }
 
     public Item(String name, int quantity){
@@ -78,5 +80,17 @@ public class Item {
     public Date getCreated() {
         return created;
     }
+
+    public void setCreated(Date created) {
+        this.created  = created;
+    }
+
+	@Override
+	public String toString() {
+		return "Item [complete=" + complete + ", created=" + created + ", id=" + id + ", name=" + name + ", quantity="
+				+ quantity + "]";
+	}
+
+    
     
 }

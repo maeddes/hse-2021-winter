@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: hse-deploy
+  name: hse-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hse-deploy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: hse-deploy
+    spec:
+      containers:
+      - image: maeddes/kubernetes-demo:v0.2
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: h2
+        name: kubernetes-demo
+        resources: {}
+status: {}
