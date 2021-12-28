@@ -1,3 +1,4 @@
+* https://www.educative.io/blog/distributed-systems-considerations-tradeoffs
 * https://stackoverflow.com/questions/14561385/missing-sequence-or-table-hibernate-sequence
 * https://stackoverflow.com/questions/1493262/list-all-sequences-in-a-postgres-db-8-1-with-sql
 * https://stackoverflow.com/questions/39807483/sequence-hibernate-sequence-not-found-sql-statement
