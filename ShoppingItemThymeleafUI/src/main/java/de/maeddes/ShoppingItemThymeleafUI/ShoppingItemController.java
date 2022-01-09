@@ -1,5 +1,7 @@
 package de.maeddes.ShoppingItemThymeleafUI;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -14,10 +16,10 @@ import reactor.core.publisher.Mono;
 
 @Controller
 public class ShoppingItemController {
-
-    // Logger logger =
-    // LoggerFactory.class(de.maeddes.ShoppingItemThymeleafUI.ShoppingItemController.class);
-
+    
+    
+    Logger logger = LoggerFactory.getLogger(de.maeddes.ShoppingItemThymeleafUI.ShoppingItemController.class);
+    
     @Value("${backend.endpoint}")
     private String shoppingApplicationEndpoint;
 

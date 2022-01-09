@@ -107,6 +107,8 @@ _The student is able to build and configure an own Spring Boot application from 
 * Docker concepts: daemon, hub, dockerfile, CLI
 * Running containers with various options
 
+image::pics/docker_diagram.png[Relation Container and Image]
+
 === Objectives and exercises
 _The student understands the concepts and use cases of container technology and is able to describe them. The first exercise is to pull sample images from an image registry (e.g. Docker Hub) and interact with them (run, expose port, execute shell, cleanup etc). After that the student can show how to build a custom image via Dockerfile and push it to a registry for others to access. Complete the exercises handed out via URL._
 
@@ -120,6 +122,7 @@ image::pics/container_exercises.png[Relation Container and Image]
 * https://www.docker.com/products/docker-desktop
 * https://www.youtube.com/watch?v=fqMOX6JJhGo
 
+
 === Review questions
 
 * What is the difference between a container and a VM? List 3 criteria
@@ -128,6 +131,8 @@ image::pics/container_exercises.png[Relation Container and Image]
 * What is the difference between docker run, docker pull and docker start?
 * Which command transitions from a container instance to an image?
 * What does docker exec do?
+
+image::pics/container_exercises.png[Docker Exercises]
 
 == Module: Container Images
 
