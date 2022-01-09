@@ -132,8 +132,6 @@ image::pics/container_exercises.png[Relation Container and Image]
 * Which command transitions from a container instance to an image?
 * What does docker exec do?
 
-image::pics/container_exercises.png[Docker Exercises]
-
 == Module: Container Images
 
 * Difference and relation between container and container images
