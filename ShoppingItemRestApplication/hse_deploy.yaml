@@ -18,10 +18,18 @@ spec:
         app: hse-deploy
     spec:
       containers:
-      - image: maeddes/kubernetes-demo:v0.2
+      - image: maeddes/kubernetes-demo:v2
+        name: kubernetes-demo
         env:
         - name: SPRING_PROFILES_ACTIVE
-          value: h2
-        name: kubernetes-demo
+          value: "postgres"
+        - name: spring.datasource.url 
+          value: "jdbc:postgresql://10.0.208.234:5432/ShoppingList"
+        readinessProbe:
+          httpGet:
+            path: /demo
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 5
         resources: {}
 status: {}

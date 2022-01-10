@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: shoppinglistdb
+  name: shoppinglistdb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shoppinglistdb
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: shoppinglistdb
+    spec:
+      containers:
+      - image: timi007/shoppinglistdatabase:latest
+        name: shoppinglistdatabase
+        env:
+        - name: POSTGRES_USER
+          value: "my_user"
+        - name: POSTGRES_PASSWORD
+          value: "my_password"
+        resources: {}
+status: {}
