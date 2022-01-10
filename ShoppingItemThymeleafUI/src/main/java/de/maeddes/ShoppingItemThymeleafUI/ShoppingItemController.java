@@ -17,8 +17,7 @@ import reactor.core.publisher.Mono;
 @Controller
 public class ShoppingItemController {
     
-    
-    Logger logger = LoggerFactory.getLogger(de.maeddes.ShoppingItemThymeleafUI.ShoppingItemController.class);
+    final Logger logger = LoggerFactory.getLogger(de.maeddes.ShoppingItemThymeleafUI.ShoppingItemController.class);
     
     @Value("${backend.endpoint}")
     private String shoppingApplicationEndpoint;
@@ -45,7 +44,7 @@ public class ShoppingItemController {
         item.setName(newItem);
         item.setQuantity(amount);
 
-        System.out.println("New item: "+item);
+        logger.info("New item: "+item);
 
         WebClient
             .create(shoppingApplicationEndpoint)
@@ -62,7 +61,7 @@ public class ShoppingItemController {
     @PostMapping("/delete")
     public String deleteItem(@RequestParam long id){
 
-        System.out.println("Delete invoked with : "+id);
+        logger.info("Delete invoked with : "+id);
 
         WebClient
             .create(shoppingApplicationEndpoint+id)

@@ -3,7 +3,10 @@ package de.maeddes.ShoppingItemRestApplication;
 import java.util.List;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,8 +29,13 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 @RequestMapping("/items")
 public class ItemRestController {
 
+    final Logger logger = LoggerFactory.getLogger(de.maeddes.ShoppingItemRestApplication.ItemRestController.class);
+
     @Autowired
     ItemRepository shoppingItemRepository;
+
+    @Value("${HOSTNAME:not_found}")
+    String hostname;
 
     @Operation(summary = "Only a hack, please ignore")
     @PostMapping(path = "/{name}")
@@ -46,7 +54,7 @@ public class ItemRestController {
     @PostMapping(consumes = "application/json", produces = "application/json")
     Item createShoppingItem(@RequestBody Item item) {
 
-        System.out.println("Received: "+item);
+        logger.info("Received POST on instance "+hostname+ " Item: "+item);
         shoppingItemRepository.save(item);
         return item;
 
@@ -65,6 +73,7 @@ public class ItemRestController {
     @DeleteMapping(produces = "application/json", path = "/{itemId}")
     Item deleteShoppingItem(@PathVariable long itemId){
 
+        logger.info("Received DELETE on instance "+hostname+ " Id: "+itemId);
         this.shoppingItemRepository.deleteById(itemId);
         return null;
 
@@ -79,6 +88,7 @@ public class ItemRestController {
     @GetMapping(produces = "application/json", path = "/{itemId}")
     Optional<Item> getShoppingItem(@PathVariable long itemId) {
 
+        logger.info("Received GET on instance "+hostname);
         return shoppingItemRepository.findById(itemId);
 
     }
@@ -87,6 +97,7 @@ public class ItemRestController {
     @GetMapping(produces = "application/json")
     List<Item> getShoppingItems(@RequestParam(required = false) String itemName) {
 
+        logger.info("Received GET on instance "+hostname);
         List<Item> shoppingItems = null;
 
         if (itemName != null) {
