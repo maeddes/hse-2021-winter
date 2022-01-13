@@ -1,3 +1,9 @@
+image:pics/lab_draft.png[]
+image:pics/lab_polyglot.png[]
+image:pics/lab_spring_csharp.png[]
+image:pics/lab_kubernetes_exercise.png[]
+
+
 === Reference Database and Sample project:
 
 * https://github.com/Timi007/ShoppingListDatabase
