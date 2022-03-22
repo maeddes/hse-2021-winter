@@ -114,12 +114,4 @@ public class ItemRestController {
 
     }
 
-    // @GetMapping(produces = "application/json")
-    // List<ShoppingItem> getShoppingItems(){
-
-    // List<ShoppingItem> shoppingItems = shoppingItemRepository.findAll();
-    // return shoppingItems;
-
-    // }
-
 }
